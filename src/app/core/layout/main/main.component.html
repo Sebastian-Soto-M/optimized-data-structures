@@ -1,11 +1,26 @@
 <body [class.dark-theme]="theme">
-  <header>
-    <app-navigation></app-navigation>
-  </header>
-  <main>
-    <ng-content></ng-content>
-  </main>
-  <footer>
-    <app-footer></app-footer>
-  </footer>
+  <app-navigation></app-navigation>
+  <mat-drawer-container>
+    <mat-drawer mode="side" opened>
+      <mat-nav-list>
+        <h3 matSubheader>Basic</h3>
+        <a mat-list-item>
+          <mat-icon color="primary">list</mat-icon>Ordered List
+        </a>
+        <a mat-list-item><mat-icon color="primary">people</mat-icon>Queue</a>
+        <a mat-list-item>
+          <mat-icon color="primary">horizontal_split</mat-icon>Stack
+        </a>
+        <mat-divider></mat-divider>
+        <h3 matSubheader>Complex</h3>
+        <a mat-list-item>
+          <mat-icon color="primary">account_tree</mat-icon> Tree
+        </a>
+      </mat-nav-list>
+    </mat-drawer>
+    <mat-drawer-content class="content">
+      <ng-content></ng-content>
+    </mat-drawer-content>
+  </mat-drawer-container>
+  <app-footer></app-footer>
 </body>

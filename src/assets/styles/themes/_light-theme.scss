@@ -18,31 +18,29 @@ $light-theme: mat-light-theme(
 );
 
 // style component example
-@mixin light-alert-color($theme) {
+@mixin light-general-color($theme) {
   $config: mat-get-color-config($theme);
   $primary: map-get($config, primary);
   $accent: map-get($config, accent);
   $warn: map-get($config, warn);
 
-  // styles of this theme
-  app-input {
-    mat-icon {
-      margin-right: 16px;
-    }
+  $bg: mat-color(mat-palette($mat-grey, 100));
+
+  body {
+    background-color: $bg;
   }
+
   .warn {
-    background-color: mat-color($warn, 800) !important;
     color: white !important;
   }
   .info {
-    background-color: mat-color($primary) !important;
     color: white !important;
   }
 }
 
-@mixin light-alert-theme($theme) {
+@mixin light-general-theme($theme) {
   $color: mat-get-color-config($theme);
   @if $color != null {
-    @include light-alert-color($color);
+    @include light-general-color($color);
   }
 }

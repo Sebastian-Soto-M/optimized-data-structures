@@ -1,5 +1,14 @@
 @import "variables";
 
-main {
-  margin: $main-margin;
+.content {
+  padding: $main-distance;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+mat-drawer-container {
+  flex: 1 1 auto;
 }

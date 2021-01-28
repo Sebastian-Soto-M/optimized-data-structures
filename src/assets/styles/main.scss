@@ -10,3 +10,11 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+mat-nav-list {
+  a.mat-list-item {
+    mat-icon.mat-icon {
+      margin-right: $main-distance;
+    }
+  }
+}

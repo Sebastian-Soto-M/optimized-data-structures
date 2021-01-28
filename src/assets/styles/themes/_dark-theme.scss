@@ -23,11 +23,6 @@ $dark-theme: mat-dark-theme(
   $primary: map-get($config, primary);
   $accent: map-get($config, accent);
   $warn: map-get($config, warn);
-  $bg: mat-color(mat-palette($mat-grey));
-
-  :host {
-    background-color: $bg;
-  }
 
   .warn {
     color: white !important;

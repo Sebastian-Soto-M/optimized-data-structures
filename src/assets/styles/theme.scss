@@ -10,7 +10,7 @@
 @import "themes/light-theme";
 
 @include angular-material-theme($light-theme);
-@include light-alert-theme($light-theme);
+@include light-general-theme($light-theme);
 
 .dark-theme {
   @include angular-material-color($dark-theme);
