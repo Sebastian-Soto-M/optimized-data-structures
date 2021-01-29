@@ -4,17 +4,21 @@
     <mat-drawer mode="side" opened>
       <mat-nav-list>
         <h3 matSubheader>Basic</h3>
-        <a mat-list-item>
-          <mat-icon color="primary">list</mat-icon>Ordered List
+        <a mat-list-item routerLink="list">
+          <mat-icon color="primary">list</mat-icon>List
         </a>
-        <a mat-list-item><mat-icon color="primary">people</mat-icon>Queue</a>
-        <a mat-list-item>
+        <a mat-list-item routerLink="queue">
+          <mat-icon color="primary">people</mat-icon>
+          Queue
+        </a>
+        <a mat-list-item routerLink="stack">
           <mat-icon color="primary">horizontal_split</mat-icon>Stack
         </a>
         <mat-divider></mat-divider>
         <h3 matSubheader>Complex</h3>
-        <a mat-list-item>
-          <mat-icon color="primary">account_tree</mat-icon> Tree
+        <a mat-list-item routerLink="tree">
+          <mat-icon color="primary">account_tree</mat-icon>
+          Tree
         </a>
       </mat-nav-list>
     </mat-drawer>
