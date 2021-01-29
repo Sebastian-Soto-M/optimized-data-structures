@@ -4,37 +4,34 @@
  to create a palette
 */
 
-$primary: mat-palette($mat-indigo, 500);
-$accent: mat-palette($mat-purple, 400);
-$warn: mat-palette($mat-deep-orange);
+$dark-primary: mat-palette($mat-deep-purple, A200);
+$dark-accent: mat-palette($mat-teal, A700);
+$dark-warn: mat-palette($mat-deep-orange);
 $dark-theme: mat-dark-theme(
   (
     color: (
-      primary: $primary,
-      accent: $accent,
-      warn: $warn,
+      primary: $dark-primary,
+      accent: $dark-accent,
+      warn: $dark-warn,
     ),
   )
 );
 
 // style component example
-@mixin dark-alert-color($theme) {
+@mixin dark-home-color($theme) {
   $config: mat-get-color-config($theme);
   $primary: map-get($config, primary);
   $accent: map-get($config, accent);
   $warn: map-get($config, warn);
 
-  .warn {
-    color: white !important;
-  }
-  .info {
-    color: white !important;
+  strong {
+    color: mat-color($accent) !important;
   }
 }
 
-@mixin dark-alert-theme($theme) {
+@mixin dark-home-theme($theme) {
   $color: mat-get-color-config($theme);
   @if $color != null {
-    @include dark-alert-color($color);
+    @include dark-home-color($color);
   }
 }

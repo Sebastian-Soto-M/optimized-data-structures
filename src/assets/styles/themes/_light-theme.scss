@@ -4,21 +4,21 @@
  to create a palette
 */
 
-$primary: mat-palette($mat-indigo, 400);
-$accent: mat-palette($mat-purple, 400);
-$warn: mat-palette($mat-deep-orange);
+$light-primary: mat-palette($mat-indigo, 500);
+$light-accent: mat-palette($mat-purple, 400);
+$light-warn: mat-palette($mat-deep-orange);
 $light-theme: mat-light-theme(
   (
     color: (
-      primary: $primary,
-      accent: $accent,
-      warn: $warn,
+      primary: $light-primary,
+      accent: $light-accent,
+      warn: $light-warn,
     ),
   )
 );
 
 // style component example
-@mixin light-general-color($theme) {
+@mixin light-home-color($theme) {
   $config: mat-get-color-config($theme);
   $primary: map-get($config, primary);
   $accent: map-get($config, accent);
@@ -30,17 +30,14 @@ $light-theme: mat-light-theme(
     background-color: $bg;
   }
 
-  .warn {
-    color: white !important;
-  }
-  .info {
-    color: white !important;
+  strong {
+    color: mat-color($accent) !important;
   }
 }
 
-@mixin light-general-theme($theme) {
+@mixin light-home-theme($theme) {
   $color: mat-get-color-config($theme);
   @if $color != null {
-    @include light-general-color($color);
+    @include light-home-color($color);
   }
 }
