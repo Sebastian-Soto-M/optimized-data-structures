@@ -15,7 +15,7 @@
     fxLayoutAlign.gt-sm="space-between"
     id="structures"
   >
-    <mat-card matRipple (click)="goto('list')" fxFlex>
+    <mat-card matRipple (click)="goto('list')" fxFlex.gt-sm>
       <mat-card-header>
         <mat-card-title>List</mat-card-title>
         <mat-card-subtitle>DYNAMIC</mat-card-subtitle>
@@ -28,7 +28,7 @@
         <p>It can also show items from the middle of the structure.</p>
       </mat-card-content>
     </mat-card>
-    <mat-card matRipple (click)="goto('queue')" fxFlex>
+    <mat-card matRipple (click)="goto('queue')" fxFlex.gt-sm>
       <mat-card-header>
         <mat-card-title>Queue</mat-card-title>
         <mat-card-subtitle>F.I.F.O</mat-card-subtitle>
@@ -41,7 +41,7 @@
         </p>
       </mat-card-content>
     </mat-card>
-    <mat-card matRipple (click)="goto('stack')" fxFlex>
+    <mat-card matRipple (click)="goto('stack')" fxFlex.gt-sm>
       <mat-card-header>
         <mat-card-title>Stack</mat-card-title>
         <mat-card-subtitle>F.I.L.O</mat-card-subtitle>
@@ -54,7 +54,7 @@
         </p>
       </mat-card-content>
     </mat-card>
-    <mat-card matRipple (click)="goto('tree')" fxFlex>
+    <mat-card matRipple (click)="goto('tree')" fxFlex.gt-sm>
       <mat-card-header>
         <mat-card-title>Tree</mat-card-title>
         <mat-card-subtitle>DYNAMIC</mat-card-subtitle>
