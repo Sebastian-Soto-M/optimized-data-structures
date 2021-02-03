@@ -10,11 +10,11 @@ export interface IMoveData<T> {
 }
 
 export class DataStructure<T> {
-  protected size: number = 0;
+  protected _size: number = 0;
   protected head: INode<T> | null = null;
 
   isEmpty(): boolean {
-    return this.size === 0;
+    return this._size === 0;
   }
 
   toArray(): T[] {
@@ -25,6 +25,10 @@ export class DataStructure<T> {
       current = current.next;
     }
     return arr;
+  }
+
+  size(): number {
+    return this._size;
   }
 }
 

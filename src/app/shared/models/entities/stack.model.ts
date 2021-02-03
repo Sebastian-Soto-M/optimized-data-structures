@@ -11,7 +11,7 @@ export class Stack<T> extends DataStructure<T> implements IStack<T> {
     if (this.isEmpty()) return null;
     const value = this.head!.value;
     this.head = this.head!.next;
-    --this.size;
+    --this._size;
     return value;
   }
 
@@ -22,7 +22,7 @@ export class Stack<T> extends DataStructure<T> implements IStack<T> {
       node.next = this.head;
       this.head = node;
     }
-    ++this.size;
+    ++this._size;
   }
 
   peek(): T | null {

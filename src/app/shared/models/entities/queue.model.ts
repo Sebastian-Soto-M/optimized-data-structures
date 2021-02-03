@@ -20,7 +20,7 @@ export class Queue<T> extends DataStructure<T> implements IQueue<T> {
       this.tail!.next = node;
       this.tail = this.tail!.next;
     }
-    ++this.size;
+    ++this._size;
   }
 
   dequeue(): T | null {
@@ -28,7 +28,7 @@ export class Queue<T> extends DataStructure<T> implements IQueue<T> {
     const item = this.head!.value;
     this.head = this.head!.next;
     if (!this.isEmpty()) this.tail = null;
-    --this.size;
+    --this._size;
     return item;
   }
 

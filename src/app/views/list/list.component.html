@@ -1,33 +1,10 @@
 <h1>List</h1>
+<mat-divider></mat-divider>
 <div fxLayout="column" fxLayoutGap="16px">
-  <div>
-    <p>
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio
-      minima beatae vitae eos aliquam, reiciendis eum qui non nihil itaque
-      similique necessitatibus vero incidunt placeat, culpa accusamus sit. Illo
-      accusantium reprehenderit laborum laudantium recusandae! Mollitia
-      exercitationem laudantium fugit tenetur voluptatibus quibusdam, omnis
-      blanditiis magnam, voluptatem dignissimos, nulla unde commodi ex
-      asperiores! Quam eaque, nulla ipsa quos cum dicta nihil necessitatibus
-      vero. In quod cum dolore quis excepturi dignissimos aspernatur sapiente
-      magni obcaecati ab. Quia mollitia quibusdam possimus exercitationem?
-      Placeat provident consequuntur quod nulla. Inventore odit cum labore sunt
-      suscipit laboriosam eveniet deleniti illo saepe eligendi voluptatum
-      corporis, numquam, nisi reprehenderit.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio
-      minima beatae vitae eos aliquam, reiciendis eum qui non nihil itaque
-      similique necessitatibus vero incidunt placeat, culpa accusamus sit. Illo
-      accusantium reprehenderit laborum laudantium recusandae! Mollitia
-      exercitationem laudantium fugit tenetur voluptatibus quibusdam, omnis
-      blanditiis magnam, voluptatem dignissimos, nulla unde commodi ex
-      asperiores! Quam eaque, nulla ipsa quos cum dicta nihil necessitatibus
-      vero. In quod cum dolore quis excepturi dignissimos aspernatur sapiente
-      magni obcaecati ab. Quia mollitia quibusdam possimus exercitationem?
-      Placeat provident consequuntur quod nulla. Inventore odit cum labore sunt
-      suscipit laboriosam eveniet deleniti illo saepe eligendi voluptatum
-      corporis, numquam, nisi reprehenderit.
-    </p>
-  </div>
+  <mat-list>
+    <mat-list-item *ngFor="let value of ds.toArray()">
+      {{ value }}
+    </mat-list-item>
+  </mat-list>
+  <mat-divider></mat-divider>
 </div>

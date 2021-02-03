@@ -1,5 +1,9 @@
-<mat-list>
-  <mat-list-item *ngFor="let value of ds.toArray()">
-    {{ value }}
-  </mat-list-item>
-</mat-list>
+<h1>Stack</h1>
+<mat-divider></mat-divider>
+<div fxLayout="column" fxLayoutGap="16px">
+  <mat-list>
+    <mat-list-item *ngFor="let value of ds.toArray()">
+      {{ value }}
+    </mat-list-item>
+  </mat-list>
+</div>
