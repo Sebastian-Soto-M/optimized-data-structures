@@ -5,6 +5,7 @@ import { StackComponent } from './stack/stack.component';
 import { QueueComponent } from './queue/queue.component';
 import { ListComponent } from './list/list.component';
 import { TreeComponent } from './tree/tree.component';
+import { ChipsComponent } from './tree/chips/chips.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { TreeComponent } from './tree/tree.component';
     QueueComponent,
     ListComponent,
     TreeComponent,
+    ChipsComponent,
   ],
   imports: [SharedModule],
   exports: [

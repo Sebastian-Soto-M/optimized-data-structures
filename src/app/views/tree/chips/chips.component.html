@@ -1,0 +1,9 @@
+<mat-chip-list>
+  <mat-chip
+    [color]="searchNumber !== item ? 'primary' : 'accent'"
+    selected
+    *ngFor="let item of list; let last = last"
+  >
+    {{ item }}
+  </mat-chip>
+</mat-chip-list>

@@ -9,118 +9,83 @@ class TreeNode<T> {
   }
 }
 
-export class BinaryTree<T> {
+export interface ITree<T> {
+  add(value: T): void;
+  sortPreOrder(): T[];
+  sortInOrder(): T[];
+  sortPostOrder(): T[];
+  search?(value: T): boolean;
+}
+
+export class BinaryTree<T> implements ITree<T> {
   root: TreeNode<T> | null;
   constructor() {
     this.root = null;
   }
-  /**
-   * Adds a new TreeNode to BST.
-   * @param value Value of the Tree node to be added to BST
-   */
-  addToTree(value: T): boolean {
-    const newNode = new TreeNode<T>(value);
-    if (this.root == null) {
-      this.root = newNode;
-      return true;
-    } else {
-      let currentNode = this.root;
-      let traversing = true;
-      while (traversing) {
-        if (currentNode.value == newNode.value) {
-          //Duplicates are not accepted.
-          traversing = false;
-          return false;
-        } else if (newNode.value < currentNode.value) {
-          // Traverse left of the node
-          if (currentNode.left == null) {
-            //Add to the left of the current node
-            currentNode.left = newNode;
-            traversing = false;
-            return true;
-          } else {
-            //Traverse the left of the current node
-            currentNode = currentNode.left;
-          }
-        } else if (newNode.value > currentNode.value) {
-          // Traverse right of the node
-          if (currentNode.right == null) {
-            //Add to the right of the current node
-            currentNode.right = newNode;
-            traversing = false;
-            return true;
-          } else {
-            //Traverse the left of the current node
-            currentNode = currentNode.right;
-          }
-        }
-      }
+
+  add(value: T): void {
+    this.root = this.recAdd(this.root, value);
+  }
+
+  private recAdd(current: TreeNode<T> | null, value: T): TreeNode<T> {
+    if (current === null) return new TreeNode(value);
+    if (value < current.value) current.left = this.recAdd(current.left, value);
+    else if (value > current.value)
+      current.right = this.recAdd(current.right, value);
+    return current;
+  }
+
+  sortPreOrder(): T[] {
+    const res: T[] = [];
+    this.recPreOrder(this.root, res);
+    return res;
+  }
+
+  private recPreOrder(node: TreeNode<T> | null, result: T[]) {
+    if (node != null) {
+      result.push(node.value);
+      this.recPreOrder(node.left, result);
+      this.recPreOrder(node.right, result);
     }
   }
 
-  /**
-   * Traverse the tree in Breath-First-Search pattern and returns th array of values in BFS order
-   */
-  BFS(): T[] {
-    let queue = new Array<TreeNode<T>>();
-    let visited = new Array<T>();
-    queue.push(this.root);
-    while (queue.length !== 0) {
-      let current = queue.shift();
-      visited.push(current.value);
-      if (current.left !== null) queue.push(current.left);
-      if (current.right !== null) queue.push(current.right);
-    }
-    return visited;
+  sortInOrder(): T[] {
+    const res: T[] = [];
+    this.recInOrder(this.root, res);
+    return res;
   }
 
-  /**
-   * Traverse the tree in Depth-First-Search PreOrder pattern and returns th array of values in the same order
-   */
-  DFSPreOrder(): T[] {
-    let visited = new Array<T>();
-    let current = this.root;
-
-    function _traverse(node: TreeNode<T>) {
-      visited.push(node.value);
-      if (node.left) _traverse(node.left);
-      if (node.right) _traverse(node.right);
+  private recInOrder(node: TreeNode<T> | null, result: T[]): void {
+    if (node !== null) {
+      this.recInOrder(node.left, result);
+      result.push(node.value);
+      this.recInOrder(node.right, result);
     }
-
-    _traverse(current);
-    return visited;
   }
 
-  /**
-   * Traverse the tree in Depth-First-Search PostOrder pattern and returns th array of values in the same order
-   */
-  DFSPostOrder(): T[] {
-    let visited = new Array<T>();
-    let current = this.root;
-
-    function _traverse(node: TreeNode<T>) {
-      if (node.left) _traverse(node.left);
-      if (node.right) _traverse(node.right);
-      visited.push(node.value);
-    }
-
-    _traverse(current);
-    return visited;
+  sortPostOrder(): T[] {
+    const res: T[] = [];
+    this.recPostOrder(this.root, res);
+    return res;
   }
 
-  /**
-   * Traverse the tree in Depth-First-Search InOrder pattern and returns th array of values in the same order
-   */
-  DFSInOrder(): T[] {
-    let visited = new Array<T>();
-    let current = this.root;
-
-    function _traverse(node: TreeNode<T>) {
-      if (node.left) _traverse(node.left);
-      visited.push(node.value);
-      if (node.right) _traverse(node.right);
+  private recPostOrder(node: TreeNode<T> | null, result: T[]): void {
+    if (node != null) {
+      this.recPreOrder(node.left, result);
+      this.recPreOrder(node.right, result);
+      result.push(node.value);
     }
-    _traverse(current);
-    return visited;
+  }
+
+  search(value: T): boolean {
+    return this.recSearch(this.root, value);
+  }
+
+  private recSearch(current: TreeNode<T> | null, value: T): boolean {
+    if (current == null) return false;
+    if (value == current.value) return true;
+    return value < current.value
+      ? this.recSearch(current.left, value)
+      : this.recSearch(current.right, value);
   }
 }
